@@ -2,7 +2,7 @@
  
 static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
 {
-    dialogs_show_msgbox(GTK_MESSAGE_INFO, "Hello World");
+    dialogs_show_msgbox(GTK_MESSAGE_INFO, "Stopwatch init !!");
 }
  
  
