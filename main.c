@@ -6,7 +6,7 @@ static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
 }
  
  
-static gboolean hello_init(GeanyPlugin *plugin, gpointer pdata)
+static gboolean stopwatch_init(GeanyPlugin *plugin, gpointer pdata)
 {
     GtkWidget *main_menu_item;
  
@@ -23,7 +23,7 @@ static gboolean hello_init(GeanyPlugin *plugin, gpointer pdata)
 }
  
  
-static void hello_cleanup(GeanyPlugin *plugin, gpointer pdata)
+static void stopwatch_cleanup(GeanyPlugin *plugin, gpointer pdata)
 {
     GtkWidget *main_menu_item = (GtkWidget *) pdata;
  
@@ -39,8 +39,8 @@ void geany_load_module(GeanyPlugin *plugin)
     plugin->info->version = "0.0.1";
     plugin->info->author = "Anshul Ekka <anxhul10@gmail.com>";
  
-    plugin->funcs->init = hello_init;
-    plugin->funcs->cleanup = hello_cleanup;
+    plugin->funcs->init = stopwatch_init;
+    plugin->funcs->cleanup = stopwatch_cleanup;
  
     GEANY_PLUGIN_REGISTER(plugin, 225);
 }
