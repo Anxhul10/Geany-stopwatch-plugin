@@ -11,7 +11,7 @@ static gboolean stopwatch_init(GeanyPlugin *plugin, gpointer pdata)
     GtkWidget *main_menu_item;
  
     // Create a new menu item and show it
-    main_menu_item = gtk_menu_item_new_with_mnemonic("Hello World");
+    main_menu_item = gtk_menu_item_new_with_mnemonic("Stopwatch");
     gtk_widget_show(main_menu_item);
     gtk_container_add(GTK_CONTAINER(plugin->geany_data->main_widgets->tools_menu),
             main_menu_item);
