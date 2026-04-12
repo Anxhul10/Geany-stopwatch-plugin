@@ -84,7 +84,7 @@ static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
     gtk_container_add(GTK_CONTAINER(content), vbox);
 
     // Label
-    label = gtk_label_new("Time: 0 sec");
+    label = gtk_label_new("00:00:00");
     gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 5);
 
     // Button container
