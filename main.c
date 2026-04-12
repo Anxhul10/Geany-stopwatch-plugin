@@ -84,6 +84,14 @@ static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
 
     // Label
     label = gtk_label_new("00:00:00");
+
+    // Increase font size
+    PangoAttrList *attrs = pango_attr_list_new();
+    PangoAttribute *attr = pango_attr_scale_new(2.0);
+    pango_attr_list_insert(attrs, attr);
+
+    gtk_label_set_attributes(GTK_LABEL(label), attrs);
+    pango_attr_list_unref(attrs);
     gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 5);
 
     // Button container
