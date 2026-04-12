@@ -1,8 +1,16 @@
 #include <geanyplugin.h>
- 
+#define RESPONSE_START 1
+
+static void on_dialog_response(GtkDialog *dialog, gint response_id, gpointer user_data)
+{
+    if (response_id == RESPONSE_START) {
+        msgwin_msg_add(COLOR_RED, -1, NULL, "Start button clicked!");
+    }
+}
+
 static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
 {
-    GtkWidget *window;
+    GtkWidget *window, *button;
     window = gtk_dialog_new();
 
     gtk_window_set_keep_above ( (GtkWindow *) window, TRUE);
@@ -12,13 +20,12 @@ static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_widget_show(window);
 
+    
     gtk_dialog_add_buttons(GTK_DIALOG(window),
-                       "_Start", GTK_RESPONSE_CANCEL,
-                       NULL);
-
-    // g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
-    // gtk_main();
+        "_Start", RESPONSE_START,
+    NULL);
+    
+    g_signal_connect(window, "response", G_CALLBACK(on_dialog_response), NULL);
 }
  
  
