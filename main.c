@@ -63,8 +63,7 @@ static void on_stop_clicked(GtkButton *btn, gpointer user_data)
 static void on_reset_clicked(GtkButton *btn, gpointer user_data)
 {
     seconds = 0;
-
-    gtk_label_set_text(GTK_LABEL(label), "Time: 0 sec");
+    gtk_label_set_text(GTK_LABEL(label), "00:00:00");
 
     msgwin_msg_add(COLOR_RED, -1, NULL, "Reset");
 }
