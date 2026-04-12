@@ -17,11 +17,16 @@ static gboolean update_timer(gpointer data)
 
     seconds++;
 
+    int hrs = seconds / 3600;
+    int mins = (seconds % 3600) / 60;
+    int secs = seconds % 60;
+
     char buf[64];
-    snprintf(buf, sizeof(buf), "Time: %d sec", seconds);
+    snprintf(buf, sizeof(buf), "%02d:%02d:%02d", hrs, mins, secs);
+
     gtk_label_set_text(GTK_LABEL(label), buf);
 
-    return TRUE; // keep running
+    return TRUE;
 }
 
 
