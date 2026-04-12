@@ -2,7 +2,19 @@
  
 static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
 {
-    dialogs_show_msgbox(GTK_MESSAGE_INFO, "Stopwatch init !!");
+    GtkWidget *window;
+    window = gtk_dialog_new();
+
+    gtk_window_set_keep_above ( (GtkWindow *) window, TRUE);
+    gtk_window_set_type_hint (GTK_WINDOW (window), GDK_WINDOW_TYPE_HINT_DIALOG);
+    gtk_window_set_title(GTK_WINDOW(window), "Stopwatch -by Anxhul10");
+    gtk_window_set_default_size(GTK_WINDOW(window), 400, 100);
+    gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+    gtk_widget_show(window);
+
+    g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+    gtk_main();
 }
  
  
@@ -29,8 +41,7 @@ static void stopwatch_cleanup(GeanyPlugin *plugin, gpointer pdata)
  
     gtk_widget_destroy(main_menu_item);
 }
- 
- 
+
 G_MODULE_EXPORT
 void geany_load_module(GeanyPlugin *plugin)
 {
