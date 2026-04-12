@@ -1,6 +1,0 @@
-```
-gcc -fPIC -c hello.c `pkg-config --cflags geany`
-gcc -shared -o hello.so hello.o `pkg-config --libs geany`
-```
-
-cp -r hello.so ~/.config/geany/plugins
