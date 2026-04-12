@@ -12,9 +12,13 @@ static void item_activate_cb(GtkMenuItem *menuitem, gpointer user_data)
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_widget_show(window);
 
-    g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+    gtk_dialog_add_buttons(GTK_DIALOG(window),
+                       "_Start", GTK_RESPONSE_CANCEL,
+                       NULL);
 
-    gtk_main();
+    // g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+    // gtk_main();
 }
  
  
