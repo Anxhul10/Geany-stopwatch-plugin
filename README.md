@@ -3,6 +3,10 @@
 ## DEMO
 [Watch Demo](https://youtu.be/UpRDY8HSOmg)
 
+## REQUIREMENTS
+- geany-devel
+- gcc
+
 ## INSTALLATION
 ```
 git clone https://github.com/Anxhul10/Geany-stopwatch-plugin.git
