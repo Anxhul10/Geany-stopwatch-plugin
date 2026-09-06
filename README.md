@@ -13,6 +13,14 @@ git clone https://github.com/Anxhul10/Geany-stopwatch-plugin.git
 cd Geany-stopwatch-plugin
 ./install.sh
 ```
+or 
+```
+gcc -fPIC -c main.c $(pkg-config --cflags geany)
+gcc -shared -o main.so main.o $(pkg-config --libs geany)
+mkdir -p ~/.config/geany/plugins
+cp main.so ~/.config/geany/plugins
+
+```
 ## HOW TO USE
 
 - Open Geany
